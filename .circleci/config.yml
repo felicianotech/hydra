@@ -8,7 +8,7 @@ jobs:
       - image: cimg/python:3.6
     steps:
       - checkout
-      - run: apt-get install -y expect
+      - run: apt-get update && apt-get install -y expect
       - run: echo 'export NOX_PYTHON_VERSIONS=2.7' >> $BASH_ENV
       - run: pip install nox
       - run: nox
@@ -18,7 +18,7 @@ jobs:
       - image: cimg/python:3.6
     steps:
       - checkout
-      - run: apt-get install -y expect
+      - run: apt-get update && apt-get install -y expect
       - run: echo 'export NOX_PYTHON_VERSIONS=3.6' >> $BASH_ENV
       - run: pip install nox
       - run: nox
@@ -28,7 +28,7 @@ jobs:
       - image: cimg/python:3.7
     steps:
       - checkout
-      - run: apt-get install -y expect
+      - run: apt-get update && apt-get install -y expect
       - run: echo 'export NOX_PYTHON_VERSIONS=3.7' >> $BASH_ENV
       - run: pip install nox
       - run: nox
