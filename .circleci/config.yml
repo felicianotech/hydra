@@ -5,41 +5,41 @@ jobs:
   py27_linux:
     docker:
       # nox got requires python 3 but it can test 2.7
-      - image: circleci/python:3.6
+      - image: cimg/python:3.6
     steps:
       - checkout
-      - run: sudo apt-get install -y expect
+      - run: apt-get install -y expect
       - run: echo 'export NOX_PYTHON_VERSIONS=2.7' >> $BASH_ENV
-      - run: sudo pip install nox
+      - run: pip install nox
       - run: nox
 
   py36_linux:
     docker:
-      - image: circleci/python:3.6
+      - image: cimg/python:3.6
     steps:
       - checkout
-      - run: sudo apt-get install -y expect
+      - run: apt-get install -y expect
       - run: echo 'export NOX_PYTHON_VERSIONS=3.6' >> $BASH_ENV
-      - run: sudo pip install nox
+      - run: pip install nox
       - run: nox
 
   py37_linux:
     docker:
-      - image: circleci/python:3.7
+      - image: cimg/python:3.7
     steps:
       - checkout
-      - run: sudo apt-get install -y expect
+      - run: apt-get install -y expect
       - run: echo 'export NOX_PYTHON_VERSIONS=3.7' >> $BASH_ENV
-      - run: sudo pip install nox
+      - run: pip install nox
       - run: nox
 
   # Misc
   coverage:
     docker:
-      - image: circleci/python:3.6
+      - image: cimg/python:3.6
     steps:
       - checkout
-      - run: sudo pip install nox
+      - run: pip install nox
       - run: nox -s coverage
 
 workflows:
